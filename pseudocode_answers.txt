@@ -1,0 +1,74 @@
+Short Answer
+
+Q. Why do programmers use pseudocode?
+
+A. Programmers use pseudocode both as a tool for themselves and for other programmers. Programmers use for themselves to outline the skeleton of the code they are going to write and stay organized through the process. Programmers also use it as a tool for other programmers so that they can read their code in a human way rather than like a machine and express what the code should be doing.
+
+Q. If you run pseudocode on your computer what would happen?
+
+A. Nothing would happen
+
+Programming Assignment 
+
+1. Create a function that takes two numbers and prints out the greater number.
+
+function largest (num1, num2) {
+  if (num1 > num2) {
+    console.log(num1)
+  } else {
+    console.log(num2)
+  }
+
+INPUT two numbers
+IF the first number is greater than the second THEN
+  	PRINT that number
+ELSE
+	PRINT that number
+END IF
+
+
+2. Create a function that prints out the numbers from 1 to 100.
+
+function toOneHundred() {
+  for (var i = 1; i <= 100; i++) {
+    console.log(i);
+  }
+}
+
+toOneHundred();
+
+FOR init variable to 0, iterate through numbers 1 through 100 until the count reaches 100
+	PRINT the iterations
+ENDFOR
+
+
+3. Create a function that searches for a specific entry in a phonebook.
+Using the pseudocode you wrote for the previous question, implement it in any computer language of your choice.
+
+/*var contacts = [4156040384, 4039284828, 429392959];
+
+function phoneBookSearch(number) {
+  for (var i = 0; i < contacts.length; i++) {
+    if (contacts[i] === number) {
+      console.log("Number:" + number);
+      return true;
+    } else {
+      console.log("Number not found");
+    }
+  }
+}
+
+phoneBookSearch(4156040384);*/
+
+INPUT a number
+FOR init variable to 0, iterate through .length of variable 
+IF the iteration through the contacts is EQUAL to the input number
+THEN 
+ PRINT "Number" + number
+RETURN true
+ELSE 
+ PRINT "Number not found"
+END IF
+
+
+
