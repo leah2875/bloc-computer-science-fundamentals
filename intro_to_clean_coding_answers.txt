@@ -1,0 +1,135 @@
+Q1. In your own words, explain what clean code is and why it is important.
+
+A. Clean coding is the practice of writing code that improves readability and functionality. It is important that other developers can understand and interpret your code. 
+
+Q2. Think about another commonly used object that relies on computers and explain what would happen if the code was not created to an acceptable standard.
+
+A. Airplanes and airplane technology rely on computers and any number of tragic things could happen if code wasn't created to an acceptable standard. Documented rule enforcement, quality control and peer review are all extremely necessary.
+
+Q3. 
+
+A. It is not clean code because the argument/parameter names are very unclear, the function name is vague.
+
+FUNCTION convertTemp (temp1, temp2) 
+IF temp1 = "F" THEN
+SET convert to (temp1-32) * (5/9)
+PRINT convert
+ELSE IF temp2 = "C" THEN
+SET convert to temp1 * 1.8000 + 32.00
+PRINT convert
+END IF
+END FUNCTION
+
+Q4.
+
+A. This is clean code, everything is named clearly and it looks concise 
+
+Q5.
+
+5a.
+
+   var discountRate = ' '
+   var tax = ' '
+
+   FUNCTION cash (amount, subTotal)
+   CALL getPayment RETURNING amount
+   PRINT "Change due: " + amount - subTotal * discountRate + (subTotal * tax)
+   END FUNCTION
+
+   FUNCTION creditCard (amount, subTotal) 
+   CALL getPayment RETURNING amount
+   PRINT "Your credit card has been charged " + subTotal * discountRate + (subTotal * tax)
+   END FUNCTION
+
+5b.  
+
+FUNCTION checkoutBook (book, guest)
+IF guest.accountActive THEN 
+ IF NOT (guest.hasOverdueBooks) AND
+  IF guest.outstandingFees = 0 THEN
+APPEND book to guest.books
+  SET book.status to "Checked Out"
+  PRINT "Your books have been issued."
+END IF
+ END IF
+ELSE 
+   PRINT "Unable to check out book."
+END IF
+END FUNCTION 
+
+5c.
+
+CLASS AccountActions
+
+FUNCTION displayBalance
+  PRINT balance
+END FUNCTION
+
+FUNCTION deposit(amount)
+  SET balance to balance + amount
+END FUNCTION
+
+FUNCTION withdraw(amount)
+  IF balance > amount THEN
+    SET balance to balance - amount
+  ELSE 
+    PRINT "Not enough funds"
+  END IF
+END FUNCTION 
+END CLASS
+
+CLASS offers
+
+FUNCTION creditCardOffer
+IF NOT(customer.hasCreditCard) THEN
+    CALL offerCreditCard
+END
+END FUNCTION
+
+FUNCTION checkStatus
+IF NOT(customer.hasCheckingAccount) THEN
+    CALL offerCheckingAccount
+END
+END FUNCTION
+END CLASS
+
+Programming Questions
+
+6. 
+
+function perfectSquare(arr) {
+  let sum = 0;
+  for (var i = 0; i < arr.length; i++) {
+    sum += arr[i];
+  }
+  if (Math.sqrt(sum) % 1 === 0) {
+    return Math.sqrt(sum);
+  } else {
+    return sum;
+  }
+}
+
+var arr = [1, 1];
+console.log(perfectSquare(arr));
+
+7. 
+
+var arr = [1, 2, 3, 4, 5, 6];
+
+function checkForDuplicates(arr) {
+  isUnique = true;
+
+for (var i = 0; i < arr.length; i++) {
+ for (var j = 0; j < arr.length; j++) {
+   if (i != j) {
+     if (arr[i] == arr[j]) {
+      return false;
+      }
+     }
+    }
+  }
+  return true;
+}
+
+console.log(checkForDuplicates(arr));
+
