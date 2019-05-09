@@ -1,0 +1,75 @@
+Q1. A line of people at an amusement park ride
+
+Array Data Structure 
+
+INIT rollerCoasterLine to an empty Array
+SET rollerCoasterLine [FIRST INDEX] to Vivian
+SET rollerCoasterLine [SECOND INDEX] to Ava
+SET rollerCoasterLine [THIRD INDEX] to Josh
+SET rollerCoasterLine [FOURTH INDEX] to Patrick
+SET rollerCoasterLine [FOURTH INDEX] to Mike
+
+ADD Mary
+  rollerCoasterLine PUSH Mary
+
+FUNCTION findJosh ()
+PRINT rollerCoasterLine INDEX OF Josh
+END FUNCTION
+
+FUNCTION findEmily ()
+IF rollerCoasterLine INCLUDES Emily
+  PRINT "Emily is in Line"
+ELSE
+  PRINT "Emily is not in line"
+END FUNCTION
+
+ADD Melissa 
+  rollerCoasterLine SPLICE (1, 0, Melissa)
+
+REMOVE Patrick 
+  rollerCoasterLine SPLICE (4, 1)
+
+Javascript Code
+
+
+var rollerCoasterLine = ["Vivian", "Ava", "Josh", "Patrick", "Mike"];
+
+var addMary = rollerCoasterLine.push("Mary");
+
+function findJosh() {
+  console.log(rollerCoasterLine.indexOf("Josh"));
+}
+
+findJosh();
+
+function findEmily() {
+  if (rollerCoasterLine.includes("Emily")) {
+    return "Emily is in line";
+  } else {
+    return "Emily is not in line";
+  }
+}
+
+rollerCoasterLine.splice(1, 0, "Melissa");
+
+rollerCoasterLine.splice(4, 1);
+
+console.log(rollerCoasterLine);
+
+Q2. Provide another real-world example that you can model using a data structure.
+
+A. A simple real world example would be creating different human objects with different traits, characteristics and behaviors. 
+
+Q3. How would your data structure allow developers to access and manipulate the data?
+
+A. 
+
+OBJECT human (age, occupation, likes)
+  age: age,
+  occupation: occupation,
+  likes [],
+FUNCTION greeting () {
+  PRINT "Hello"
+  }
+END OBJECT
+
