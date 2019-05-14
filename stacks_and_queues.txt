@@ -1,0 +1,65 @@
+
+//Exercises 
+
+1. What is the main difference between a stack and a queue?
+
+A. The stack data structure uses the last in first out order where the last to arrive is the first to leave. The queue data structure uses the first in first to leave order where the first object in is the first out. 
+
+2. What are the similarities between stacks and queues?
+
+A. Both structures can add and remove elements, they just do it in different orders. Both are linear data structures that store elements in arrays and perform operations. 
+
+3. Imagine you are an engineer tasked with implementing the UNDO and REDO options in a word processor such as Microsoft Word. Which data structure would you use for each option and why?
+
+A. For UNDO I would use the queue data structure because it implements FIFO - the first thing the user undoes is generally the first to leave. 
+
+For REDO it makes sense to use the stack data structure, in a word processor to redo something you have to first undo it, the last thing you undo would be the first to be redone.
+
+//Programming Questions
+
+1. Given a string, reverse it using a stack. For example, the string "Bloc!" should be converted to "!colB".
+
+function reverseString(str) {
+  var split = str.split(""); //First split the string into separate elements
+  var reverse = split.reverse(); //reverse the string
+  var join = reverse.join(""); //Join the letters back together
+  return join;
+}
+
+console.log(reverseString("Bloc!"));
+
+2. Implement the pop method of a stack using one queue. Make a FIFO data structure mirror the functionality of a LIFO data structure. Since the internal list is not the same as defined in the checkpoint, it may help to rewrite the pseudocode first.
+
+A. 
+
+var officeArray = ["Toby", "Pam", "Michael", "Dwight", "Kelly", "Jim"];
+
+function popOff() {
+  var stamford = officeArray.pop();
+  for (var i = 0; i < officeArray.length; i++) {
+    var newOffice = officeArray.concat(officeArray[i]);
+    console.log(newOffice);
+    return stamford;
+  }
+}
+console.log(popOff());
+
+3. Implement the enqueue and dequeue methods defined in the checkpoint inside your own Queue class.
+
+A.
+
+class Queue {
+  constructor() {
+    this.colors = ['blue', 'red', 'orange', 'purple'];
+  }
+
+  enqueue (arr) {
+    this.colors.push(arr)
+  }
+
+  dequeue () {
+    this.colors.shift()
+  }
+}
+
+
