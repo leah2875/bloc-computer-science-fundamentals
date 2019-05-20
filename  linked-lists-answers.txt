@@ -62,60 +62,65 @@ length++;
 2. // Given an unsorted singly linked list, remove all duplicates from the linked list.
 
 //Linked List setup
-
 function LinkedList() {
-   this.head = null;
-   this.length = 0;
+  this.head = null;
+  this.length = 0;
 }
 
-LinkedList.prototype.push = function(val){
-   var node = {
-       value: val,
-       next = null
-   }
+LinkedList.prototype.push = function(val) {
+  var node = {
+    value: val,
+    next: null,
+    current: null,
+  };
 
-if (this.head == null){  //if the head is null, then the head = the var node
-   this.head = node;
-   return node; 
-} else { 
-   current = this.head; //else, current = this.head 
-   while(current.next != null){ //while current is not null,
-       current = current.next; //then the current is the next node
-   }
-   current.next = node; //current.next is now var node
-   return node;
-}
-}
+  if (this.head === null) {
+    this.head = node;
+    this.length += 1;
+    return node;
+  } else {
+    current = this.head;
+    while (current.next != null) {
+      current = current.next;
+    }
+    current.next = node;
+    this.length += 1;
+    return node;
+  }
+};
 
 //Code to remove duplicates
 
-function duplicates() { 
+LinkedList.prototype.duplicate = function() {
+  var currentNode = this.head;
+  while (currentNode != null) {
+    var previousNode = currentNode;
+    var nextNode = currentNode.next;
+    while (nextNode != null) {
+      if (currentNode.value == nextNode.value) {
+        previousNode.next = nextNode.next;
+        this.length--;
+      } else {
+        previousNode = nextNode;
+      }
+      nextNode = nextNode.next;
+    }
+    currentNode = currentNode.next;
+  }
+  return this;
+};
 
-var list = new LinkedList(); //new instance of Linked List
+list = new LinkedList();
+list.push("a");
+list.push("b");
+list.push("c");
+list.push("c");
+list.push("d");
+list.push("e");
+list.duplicate();
 
-list.push(a); //push the items into var list as nodes
-list.push(c);
-list.push(d);
-list.push(d);
-list.push(a);
+console.log(list);
 
-   var currentNode = this.head;     //The starting node
-   while (currentNode != null){     //while the current node is not null...
-       var previousNode = currentNode;    //then previous node (head) will be the current node
-       var nextNode = currentNode.next; //the next node will be currentNode.next in moving from node to node
-   while (nextNode != null) { //while the next node is not null...
-       if (currentNode.value = nextNode.value){ //if the value of the current node is = to the value of the next node..
-           previousNode.next = nextNode.next; //then the previous node is the next node (jumps back over duplicate node)
-      this.length --; //decrements through the length to accomplish above ^
-       } else { //else it keeps moving through the nodes until the duplicates are removed
-         previousNode = nextNode;
-       }
-       nextNode =  nextNode.next;
-   }
-   currentNode = this.Node.next;
-   }
-   return this;
-}
 
 3. Given an unsorted singly linked list, reverse it.
 
