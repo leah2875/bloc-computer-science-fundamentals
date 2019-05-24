@@ -142,4 +142,59 @@ function reverseList(head) {
 }
 
 
+function LinkedList() {
+  this.head = null;
+  this.length = 0;
+}
 
+LinkedList.prototype.push = function(val) {
+  var node = { value: val, next: null, current: null };
+
+  if (this.head === null) {
+    this.head = node;
+    this.length += 1;
+    return node;
+  } else {
+    current = this.head;
+    while (current.next != null) {
+      current = current.next;
+    }
+    current.next = node;
+    this.length += 1;
+    return node;
+  }
+};
+
+//Code to remove duplicates
+
+LinkedList.prototype.duplicate = function() {
+  var currentNode = this.head;
+  while (currentNode != null) {
+    var previousNode = currentNode;
+    var nextNode = currentNode.next;
+    while (nextNode != null) {
+      if (currentNode.value == nextNode.value) {
+        previousNode.next = nextNode.next;
+        this.length--;
+      } else {
+        previousNode = nextNode;
+      }
+      nextNode = nextNode.next;
+    }
+    currentNode = currentNode.next;
+  }
+  return this;
+};
+
+let l = new LinkedList();
+l.push(1);
+l.push(1);
+l.push(2);
+l.push(1);
+l.push(2);
+l.push(3);
+l.push(1);
+
+l.duplicate();
+
+console.log(l);

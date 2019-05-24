@@ -1,0 +1,185 @@
+// Exercises 
+
+1. What is a binary tree and what makes it unique to other trees?
+
+A. A binary tree is a data structure that is unique to other trees in that each node can have at most two children. It is an ordered data structure where each left subtree is less than or equal to the parent node, and each right subtree is greater than or equal to the parent node. The order of the nodes in a binary search is dependent on the order un which the nodes were inserted. 
+
+2. What is a heuristic?
+
+A. A technique where engineers use their best guess, or an approximate solution which employs practical, rule-of-thumb methods
+
+3. What is another problem besides the shortest-path problem that requires the use of heuristics?
+
+A. A heuristic approach can be used in creating language recognition algorithms to determine what the user is asking for by using word associations/best guess
+
+4. What is the difference between a depth-first search and a breadth-first search?
+
+A. A depth first search pattern travels down a single branch in search of the desired element, if it doesn't find the element down the first branch, it moves upwards and repeats the process until it finds it or comes to the end.
+
+A breadth first search pattern searches an entire row of nodes before proceeding to the next, as it descends into lower levels of the trees, the number of nodes it searches increases. 
+
+5. Explain in your own words what an undirected, a-cyclic, unweighted graph is.
+
+A. A graph that doesn't have a start or end node, it only connects nodes, it does not form a loop and does not have the presence of an edge 
+
+6. What kind of graph is a binary search tree?
+
+A. Directed, a-cyclic, unweighted
+
+// Programming Questions
+
+1. Given a Binary Search Tree and a value, write a function that checks to see whether the value exists within the tree.
+
+A. First I have to create a function to add data into the tree and also a function to determine where to place that data in a binary tree based on if the added nodes are less than or greater than the root node. After I create those functions, I need to add a method to check if the value exists in the tree, it has to determine which path to travel to check for the node based on what has been added as data (left or right side of tree). 
+
+class Node {
+  constructor(data, left = null, right = null) {
+    this.data = data;
+    this.left = left;
+    this.right = right;
+  }
+}
+
+//Binary Search Tree Class
+
+class BinarySearch {
+  constructor() {
+    this.root = null;
+  }
+
+  // Add function
+
+  add(data) {
+    const node = this.root;
+    if (node === null) {
+      this.root = new Node(data);
+      return;
+    } else {
+
+      // Determine where to place the added data in the tree
+
+      const search = function(node) {
+        if (data < node.data) {
+          if (node.left === null) {
+            node.left = new Node(data);
+            return;
+          } else if (node.left !== null) {
+            return search(node.left);
+          }
+        } else if (data > node.data) {
+          if (node.right === null) {
+            node.right = new Node(data);
+            return;
+          } else if (node.right !== null) {
+            return search(node.right);
+          }
+        } else {
+          return null;
+        }
+      };
+      return search(node);
+    }
+  }
+
+  // Method to check if value exists
+
+  exists(data) {
+    let current = this.root;
+    while (current !== null) {
+      if (data === current.data) {
+        return true;
+      }
+      if (data < current.data) {
+        current = current.left;
+      } else {
+        current = current.right;
+      }
+    }
+    return false;
+  }
+}
+
+const bst = new BinarySearch();
+bst.add(10);
+bst.add(11);
+console.log(bst.exists(10));
+console.log(bst.exists(23));
+
+2. Given a Binary Search Tree and two nodes, n1 and n2, write a function that finds the distance between the two nodes.
+
+A. First find the lowest common ancestor of the binary search tree and then find the distance from the lowest common ancestor to n1 and n2 and return the sum of the distance
+
+class Node {
+  constructor(data) {
+    this.data = data;
+    this.left = null;
+    this.right = null;
+  }
+}
+//Binary Search Tree Class
+class BinarySearch {
+  constructor() {
+    this.root = null;
+  }
+}
+
+//Find lowest common ancestor
+
+function lowestCommonAncestor(root, n1, n2) {
+  if (root != null) {
+    if (root.data == n1 || root.data == n2) {
+      return root;
+    }
+    let left = lowestCommonAncestor(root.left, n1, n2);
+    let right = lowestCommonAncestor(root.right, n1, n2);
+
+    if (left !== null && right !== null) {
+      return root;
+    }
+    if (left != null) {
+      return left;
+    }
+    if (right != null) {
+      return right;
+    }
+  }
+  return null;
+}
+
+function distanceLength(root, n1, n2) {
+  let x = distanceLength(root, n1) - 1;
+  let y = distanceLength(root, n2) - 1;
+  let lcaData = lowestCommonAncestor(root, n1, n2).data;
+  let lcaDistance = distanceLength(root, lcaData) - 1;
+  return x + y - 2 * lcaDistance;
+}
+
+function distanceLength(root, n1) {
+  if (root != null) {
+    let x = 0;
+    if (
+      root.data == n1 ||
+      (x = distanceLength(root.left, n1)) > 0 ||
+      (x = distanceLength(root.right, n1)) > 0
+    ) {
+      return x + 1;
+    }
+    return 0;
+  }
+  return 0;
+}
+
+root = new Node(1);
+root.left = new Node(4);
+root.right = new Node(2);
+root.left.left = new Node(3);
+root.left.right = new Node(5);
+root.right.right = new Node(7);
+root.left.right.left = new Node(15);
+root.left.right.right = new Node(12);
+root.right.right.left = new Node(13);
+
+console.log(root);
+distanceLength(root, 3, 5);
+distanceLength(root, 8, 10);
+distanceLength(root, 1, 14);
