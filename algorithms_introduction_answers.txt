@@ -1,0 +1,48 @@
+// Exercises
+
+1. Using proper pseudo-code, describe the following primitive algorithms:
+
+Making coffee:
+
+SET water to boil 
+ADD one scoop of coffee grounds 
+	INCREMENT by three
+GET boiling water 
+INIT pouring water over grounds
+WHILE time < six minutes
+  	WAIT
+ENDWHILE
+
+
+Washing dishes:
+
+INIT filling sink with water
+	SET soap 
+ADD dirty dishes
+INIT scrubbing
+IF dish is still dirty THEN
+	keep scrubbing
+ELSE 
+	ADD to dish dring rack
+ENDIF
+
+A choice of your own:
+
+Getting gas
+
+DISPLAY gasGauge
+IF gasGauge > 1/4 full THEN
+   No need to fill up
+ELSE 
+   INIT gas station
+   GET gas
+   INCREMENT until full
+ENDIF
+
+2. As with the knot algorithm, there may be more than one way to solve the problem. It is essential to try to pick the best algorithm for a situation. Name three companies who created an algorithm that made them successful, e.g., Google's search algorithm. It doesn't need to be a tech example (such as a recipe or manufacturing a product). Google's algorithm produces more relevant results than other search engines; what about each of your cases make them stand out?
+
+A. Netflix movie recommendation algorithm, Facebook's news/story ranking algorithm, Amazon's recommendation algorithm. They stand out because all of these are the top websites in their industries (entertainment, social media, online shopping) and I have personally all of them and their algorithms especially the recommended products and movies/shows so they must be pretty good!
+
+3. Hypothesize about what constitutes an efficient algorithm versus an inefficient algorithm.
+
+A. In an efficient algorithm, the steps should be precise and clear, finite, able to react to/handle input and output and allow for the final product to be fast and accurate. An inefficient algorithm would not yield a result in a finite amount of time, be unclear and redundant
