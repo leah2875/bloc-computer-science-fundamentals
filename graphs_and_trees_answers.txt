@@ -2,7 +2,7 @@
 
 1. What is a binary tree and what makes it unique to other trees?
 
-A. A binary tree is a data structure that is unique to other trees in that each node can have at most two children. It is an ordered data structure where each left subtree is less than or equal to the parent node, and each right subtree is greater than or equal to the parent node. The order of the nodes in a binary search is dependent on the order un which the nodes were inserted. 
+A. A binary tree is a data structure that is unique to other trees in that each node can have at most two children. It is an unordered data structure where each left subtree is less than or equal to the parent node, and each right subtree is greater than or equal to the parent node. The order of the nodes in a binary search is dependent on the order un which the nodes were inserted. 
 
 2. What is a heuristic?
 
@@ -20,7 +20,7 @@ A breadth first search pattern searches an entire row of nodes before proceeding
 
 5. Explain in your own words what an undirected, a-cyclic, unweighted graph is.
 
-A. A graph that doesn't have a start or end node, it only connects nodes, it does not form a loop and does not have the presence of an edge 
+A. A graph that doesn't have a start or end node, it only connects nodes, it does not form a loop and does not assign the cost of travel between Nodes. 
 
 6. What kind of graph is a binary search tree?
 
@@ -30,7 +30,7 @@ A. Directed, a-cyclic, unweighted
 
 1. Given a Binary Search Tree and a value, write a function that checks to see whether the value exists within the tree.
 
-A. First I have to create a function to add data into the tree and also a function to determine where to place that data in a binary tree based on if the added nodes are less than or greater than the root node. After I create those functions, I need to add a method to check if the value exists in the tree, it has to determine which path to travel to check for the node based on what has been added as data (left or right side of tree). 
+A. First I have to create a method to add data into the tree and also a method to determine where to place that data in a binary tree based if the added nodes are less than or greater than the root node. After I create those methods, I need to add a method to check if the value exists in the tree, it starts at the root and compares input value with the value of the root, if it is greater than the root it travels down the left side, and if it is less then it travels down the right side. This process continues until either a value is found or there is no more nodes to inspect.  
 
 class Node {
   constructor(data, left = null, right = null) {
@@ -124,7 +124,6 @@ class BinarySearch {
 }
 
 //Find lowest common ancestor
-
 function lowestCommonAncestor(root, n1, n2) {
   if (root != null) {
     if (root.data == n1 || root.data == n2) {
@@ -146,7 +145,7 @@ function lowestCommonAncestor(root, n1, n2) {
   return null;
 }
 
-function distanceLength(root, n1, n2) {
+function findDistance(root, n1, n2) {
   let x = distanceLength(root, n1) - 1;
   let y = distanceLength(root, n2) - 1;
   let lcaData = lowestCommonAncestor(root, n1, n2).data;
@@ -169,17 +168,16 @@ function distanceLength(root, n1) {
   return 0;
 }
 
-root = new Node(1);
-root.left = new Node(4);
-root.right = new Node(2);
-root.left.left = new Node(3);
-root.left.right = new Node(5);
-root.right.right = new Node(7);
-root.left.right.left = new Node(15);
-root.left.right.right = new Node(12);
-root.right.right.left = new Node(13);
+root = new Node(4);
+root.left = new Node(10);
+root.right = new Node(3);
+root.left.left = new Node(6);
+root.left.right = new Node(13);
+root.right.right = new Node(5);
+root.left.right.left = new Node(7);
+root.left.right.right = new Node(16);
+root.right.right.left = new Node(11);
 
-console.log(root);
-distanceLength(root, 3, 5);
-distanceLength(root, 8, 10);
-distanceLength(root, 1, 14);
+console.log(distanceLength(root, 4, 13));
+console.log(distanceLength(root, 5, 11));
+console.log(distanceLength(root, 10, 3));
