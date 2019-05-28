@@ -1,0 +1,34 @@
+// Exercises
+
+1. What is time complexity and what is its relation to algorithms?
+
+A. Time complexity is a function that estimates the amount of time it takes to run a program, it is used to describe the efficiency of an algorithm. To estimate time complexity, we calculate how the algorithm's speed changes based on the input size. 
+
+2. What is runtime?
+
+A. Runtime is the actual time duration of the algorithm. 
+
+3. How is the runtime of an algorithm calculated?
+
+A. By adding up the amount of instructions the algorithm must execute as a function of the size of its input, simplify the expression to the largest term and drop any constants, constants are any statements that run only once.
+
+4. Name the six types of algorithm growth rates we saw in this checkpoint and list them in order of most efficient to least efficient. Now Google another algorithmic growth rate not covered and place it in the correct spot in your list.
+
+Constant Growth Rate - 0(1)
+Logarithmic Growth Rate - 0(log n)
+Linear Growth Rate - 0(n)
+Log-Linear Growth Rate - 0(n log n)
+Quadratic Growth Rate - 0(n^2)
+Cubic Growth Rate - 0(n^3)
+Exponential Growth Rate - 0(2^n)
+
+
+5. Choose one of the algorithmic growth rates from the last question and make a comparison to a real-life situation.
+
+A. Linear growth rate - If there are 20 plants you will water 20 plants
+
+6. 0(n) - Linear Growth Rate
+7. 0(n^2) - Quadratic Growth Rate
+8. 0(2^n) - Exponential Growth Rate
+
+9. The first one is the most time efficient
