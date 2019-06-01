@@ -100,8 +100,8 @@ class BinarySearch {
 }
 
 const bst = new BinarySearch();
+bst.add(15);
 bst.add(10);
-bst.add(11);
 console.log(bst.exists(10));
 console.log(bst.exists(23));
 
